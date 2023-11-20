@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import {useEffect, useState} from "react"
+import getNewsArticles from './apiCalls';
+import { data } from "./Data/data"
 
 function App() {
+  const [articles, setArticles] = useState(data)
+
+  useEffect(() => {
+    // getNewsArticles()
+    console.log(data)
+      setArticles(data)
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Pulse News</h1>
     </div>
   );
 }
