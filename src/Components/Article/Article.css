@@ -1,0 +1,27 @@
+.article-container {
+  width: 320px;
+  height: 470px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  font-size: 1.2rem;
+  margin: 10% 0 0 10%;
+}
+
+.article-text-container {
+  padding: 0 10%;
+}
+
+.article-date {
+  margin: 0;
+  font-size: .6rem;
+}
+
+.article-image {
+  width: 120%;
+  object-fit: cover;
+  height: 50%;
+}
