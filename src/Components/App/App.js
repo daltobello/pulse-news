@@ -8,6 +8,7 @@ import ArticleDetails from '../ArticleDetails/ArticleDetails';
 
 function App() {
   const [articles, setArticles] = useState(data.articles)
+  const [searchResults, setSearchResults] = useState([])
 
   useEffect(() => {
     const articlesWithImg = articles.filter(article => article.urlToImage);
@@ -24,6 +25,24 @@ function App() {
   //   })
   // }, [])
 
+  useEffect(() => {
+    setSearchResults(articles)
+  }, [articles])
+
+  const searchNews = (query) => {
+    if(!searchResults) {
+      setSearchResults(articles)
+    } else {
+      const keyword = query.toLowerCase()
+      setSearchResults(prevArticles => 
+        prevArticles.filter(article => 
+          article.author?.toLowerCase().includes(keyword) ||
+          article.content?.toLowerCase().includes(keyword) ||
+          article.description?.toLowerCase().includes(keyword) ||
+          article.title?.toLowerCase().includes(keyword)
+        ))
+    }
+  }
 
   
 
