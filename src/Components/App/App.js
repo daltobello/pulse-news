@@ -3,6 +3,8 @@ import {useEffect, useState} from "react"
 import getNews from '../../apiCalls';
 import { data } from "../../Data/data"
 import AllNews from '../AllNews/AllNews';
+import {Routes, Route} from "react-router-dom"
+import ArticleDetails from '../ArticleDetails/ArticleDetails';
 
 function App() {
   const [articles, setArticles] = useState(data.articles)
@@ -28,7 +30,10 @@ function App() {
   return (
     <div className="App">
       <h1>Pulse News</h1>
-    <AllNews allArticles={articles}/>
+      <Routes>
+        <Route path="/" element={<AllNews allArticles={articles}/>}/>
+        <Route path="/article/:id" element={<ArticleDetails allArticles={articles}/>}/>
+      </Routes>
     </div>
   );
 }

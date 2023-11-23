@@ -7,7 +7,7 @@ function AllNews({allArticles}) {
     return <Article key={article.title} article={article}/>
   })
   return (
- <div>{articleElements}</div>   
+ <div className="articles-wrapper">{articleElements}</div>   
   )
 }
 
