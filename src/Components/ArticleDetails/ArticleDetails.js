@@ -1,22 +1,34 @@
-import "./ArticleDetails.css"
-import { useParams } from "react-router-dom"
+// ArticleDetails.js
+import React from "react";
+import "./ArticleDetails.css";
+import { useParams } from "react-router-dom";
 
-function ArticleDetails({allArticles}) {
-  const articleID = useParams().id
-  const clickedArticle = allArticles.find((article) => article.publishedAt === articleID)
-  console.log("click", clickedArticle)
+function ArticleDetails({ allArticles }) {
+  const articleID = useParams().id;
+  const indexPositions = allArticles.map((articleEl, index) => index);
+
+  // find the index position in indexPositions array that matches the articleID
+  const articleIndex = indexPositions.indexOf(parseInt(articleID));
+
+  // check if the articleIndex is valid
+  if (articleIndex === -1 || articleIndex >= allArticles.length) {
+    console.error(`Article with ID ${articleID} not found`);
+    return <p>Article not found</p>;
+  }
+
+  const clickedArticle = allArticles[articleIndex];
 
   return (
     <section className="article-details-container">
       <section className="detail-headline-and-img">
         <h2 className="detail-headline">{clickedArticle.title}</h2>
-        <img className="detail-image" src={clickedArticle.urlToImage} alt={`Image of ${clickedArticle.title}`}/>
+        <img className="detail-image" src={clickedArticle.urlToImage} alt={`Image of ${clickedArticle.title}`} />
       </section>
       <article className="detail-content">
         <p>{clickedArticle.content?.split('[')[0]}<a href={clickedArticle.url}>{`read on at ${clickedArticle.source.name}.`}</a></p>
       </article>
     </section>
-  )
+  );
 }
 
-export default ArticleDetails
+export default ArticleDetails;
