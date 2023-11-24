@@ -3,11 +3,11 @@ import Article from "../Article/Article"
 
 function AllNews({allArticles}) {
   console.log("all", allArticles)
-  const articleElements = allArticles.map((article) => {
-    return <Article key={article.title} article={article}/>
+  const articleCard = allArticles.map((article, index) => {
+    return <Article key={article.publishedAt} article={article} index={allArticles.indexOf(article)}/>
   })
   return (
- <div className="articles-wrapper">{articleElements}</div>   
+ <div className="articles-wrapper">{articleCard}</div>   
   )
 }
 
