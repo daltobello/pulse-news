@@ -2,6 +2,7 @@
 import React from "react";
 import "./ArticleDetails.css";
 import { useParams } from "react-router-dom";
+import PropTypes from "prop-types"
 
 function ArticleDetails({ allArticles }) {
   const articleID = useParams().id;
@@ -32,3 +33,17 @@ function ArticleDetails({ allArticles }) {
 }
 
 export default ArticleDetails;
+ArticleDetails.propTypes = {
+  allArticles: PropTypes.arrayOf(
+    PropTypes.shape({
+      author: PropTypes.string,
+      content: PropTypes.string,
+      description: PropTypes.string,
+      publishedAt: PropTypes.string,
+      source: PropTypes.object,
+      title: PropTypes.string,
+      url: PropTypes.string,
+      urlToImage: PropTypes.string
+    }).isRequired
+  )
+}
