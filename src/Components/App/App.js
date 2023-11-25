@@ -8,23 +8,23 @@ import ArticleDetails from '../ArticleDetails/ArticleDetails';
 import Nav from '../Nav/Nav';
 
 function App() {
-  const [articles, setArticles] = useState(data.articles)
+  const [articles, setArticles] = useState([])
   const [searchResults, setSearchResults] = useState([])
 
-  useEffect(() => {
-    const articlesWithImg = articles.filter(article => article.urlToImage);
-    console.log("articlessss", articlesWithImg);
-    setArticles(articlesWithImg);
-  }, []);
-
   // useEffect(() => {
-  //   getNews()
-  //   .then(data => {
-  //     const articlesWithImg = data.articles.filter(article => article.urlToImage)
-  //     console.log(articlesWithImg)
-  //     setArticles(articlesWithImg)
-  //   })
-  // }, [])
+  //   const articlesWithImg = articles.filter(article => article.urlToImage);
+  //   console.log("articlessss", articlesWithImg);
+  //   setArticles(articlesWithImg);
+  // }, []);
+
+  useEffect(() => {
+    getNews()
+    .then(data => {
+      const articlesWithImg = data.articles.filter(article => article.urlToImage)
+      // console.log(articlesWithImg)
+      setArticles(articlesWithImg)
+    })
+  }, [])
 
   useEffect(() => {
     setSearchResults(articles)
