@@ -2,6 +2,7 @@ import "./Nav.css"
 import React from "react"
 import Search from "../Search/Search"
 import { useLocation } from "react-router-dom"
+import PropTypes from "prop-types"
 
 
 function Nav({handleNewsSearch}) {
@@ -22,3 +23,6 @@ function Nav({handleNewsSearch}) {
 }
 
 export default Nav
+Nav.propTypes = { 
+  handleNewsSearch: PropTypes.func.isRequired,
+}
