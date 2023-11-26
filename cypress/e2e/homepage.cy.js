@@ -37,13 +37,41 @@ describe('homepage', () => {
       .get('.source-link').contains("read on at Entertainment Tonight.")
   })
 
-  // it("should handle server error", () => {
-  //   cy.intercept("GET", "https://newsapi.org/v2/top-headlines?country=us&apiKey=cb8fd1526dfe49a9bb26987581f25e22", {
-  //     statusCode: 400,
-  //     body: ""
-  //   })
-  //   .as("getAllNews")
-  //   .visit('http://localhost:3000')
-  //   cy.wait("@getAllNews")
-  // })
+  it("should search a keyword, display the results, and navigate to article details", () => {
+    cy.get("input[name='search']").type("black friday")
+    .get('.clear-btn').should("be.visible")
+    .get('.submit-btn').should("be.visible")
+    .click()
+    .get('.articles-wrapper').should('have.length', 1)
+    .get('.article-link-wrapper .article-date').contains("Published on: 19-11-2023")
+    .get('.article-link-wrapper .article-description').contains("Black Friday 2023 is getting closer and closer, and major discounts have hit numerous Apple products in the lead-up to the shopping holiday....")
+    .get('.articles-wrapper .article-link-wrapper').find(".article-image").should('be.visible')
+    .click()
+    .url().should('eq', 'http://localhost:3000/article/0')
+    .get('.detail-headline').contains("Apple Black Friday Deals Available Now: AirPods, iPhone, iPad, and More - MacRumors")
+    .get('.detail-image').should("be.visible")
+    .get('.article-content').contains("Black Friday 2023 is getting closer and closer, and major discounts have hit numerous Apple products in the lead-up to the shopping holiday. We're focusing on all of the best deals you can purchase t… read on at MacRumors.")
+  })
+
+  it("should handle erroneous URL", () => {
+    cy.visit("http://localhost:3000/incorrecturl")
+    .url().should('eq', 'http://localhost:3000/incorrecturl')
+   .get('.erroneous-url-message').contains("Page Not Found. Please double check the URL.")
+   .get('.return-button').should("be.visible")
+   .click()
+   .url().should('eq', 'http://localhost:3000/')
+  })
+
+  it("should handle server error", () => {
+    cy.intercept("GET", "https://newsapi.org/v2/top-headlines?country=us&apiKey=cb8fd1526dfe49a9bb26987581f25e22", {
+      statusCode: 400,
+      body: ""
+    })
+    .as("getAllNews")
+    .visit('http://localhost:3000')
+    cy.wait("@getAllNews")
+    .get('.server-error-message').contains("Oh no! Error: 400 Bad Request. The server is down. Please try again later.")
+  })
 })
+
+
