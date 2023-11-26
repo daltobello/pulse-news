@@ -40,10 +40,7 @@ function App() {
       const keyword = query.toLowerCase();
       setSearchResults(prevArticles =>
         prevArticles.filter(article =>
-          article.author?.toLowerCase().includes(keyword) ||
-          article.content?.toLowerCase().includes(keyword) ||
-          article.description?.toLowerCase().includes(keyword) ||
-          article.title?.toLowerCase().includes(keyword)
+          ["author", "content", "description", "title"].some((property) => article[property]?.toLowerCase().includes(keyword))
         ))
     }
   }
