@@ -37,6 +37,7 @@ function Search({ handleNewsSearch }) {
       <input
         type="search"
         placeholder="Search..."
+        name="search"
         value={query}
         onChange={handleInputChange}
       />

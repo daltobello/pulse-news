@@ -26,7 +26,7 @@ function ArticleDetails({ allArticles }) {
         <img className="detail-image" src={clickedArticle.urlToImage} alt={`Image of ${clickedArticle.title}`} />
       </section>
       <article className="detail-content">
-        <p>{clickedArticle.content?.split('[')[0]}<a href={clickedArticle.url}>{`read on at ${clickedArticle.source.name}.`}</a></p>
+        <p className="article-content">{clickedArticle.content?.split('[')[0]}<a className="source-link" href={clickedArticle.url}>{`read on at ${clickedArticle.source.name}.`}</a></p>
       </article>
     </section>
   );
