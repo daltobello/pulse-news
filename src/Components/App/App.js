@@ -1,15 +1,18 @@
 import './App.css';
 import {useEffect, useState} from "react"
+import {Routes, Route} from "react-router-dom"
 import getNews from '../../apiCalls';
 import { data } from "../../Data/data"
 import AllNews from '../AllNews/AllNews';
-import {Routes, Route} from "react-router-dom"
 import ArticleDetails from '../ArticleDetails/ArticleDetails';
 import Nav from '../Nav/Nav';
+import ErrorPage from '../ErrorPage/ErrorPage';
+
 
 function App() {
   const [articles, setArticles] = useState([])
   const [searchResults, setSearchResults] = useState([])
+  const [serverError, setServerError] = useState("")
 
   // useEffect(() => {
   //   const articlesWithImg = articles.filter(article => article.urlToImage);
@@ -21,9 +24,9 @@ function App() {
     getNews()
     .then(data => {
       const articlesWithImg = data.articles.filter(article => article.urlToImage)
-      // console.log(articlesWithImg)
       setArticles(articlesWithImg)
     })
+    .catch(error => setServerError(error))
   }, [])
 
   useEffect(() => {
@@ -50,10 +53,19 @@ function App() {
       <header>
       <Nav handleNewsSearch={handleNewsSearch}/>
       </header>
-      <Routes>
-        <Route path="/" element={<AllNews allArticles={searchResults}/>}/> 
-        <Route path="/article/:id" element={<ArticleDetails allArticles={searchResults}/>}/>
-      </Routes>
+      {serverError ? (
+        <>
+        <ErrorPage serverError={serverError}/>
+        </>
+      ) : (
+        <>
+        <Routes>
+                <Route path="/" element={<AllNews allArticles={searchResults}/>}/> 
+                <Route path="/article/:id" element={<ArticleDetails allArticles={searchResults}/>}/>
+                <Route path="*" element={<ErrorPage notFoundMessage="Page Not Found. Please double check the URL." />} />
+        </Routes>
+        </>
+      )}
     </div>
   );
 }
