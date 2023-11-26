@@ -1,5 +1,7 @@
 <div align="center">
+  
 # Pulse News
+  
 </div>
 
 ### Abstract
