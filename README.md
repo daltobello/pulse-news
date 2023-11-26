@@ -25,7 +25,7 @@ Pulse News is a reliable news aggregator app that not only delivers current US n
 ### Context
 This project, which uses the [News API](https://newsapi.org/), was assigned as a mock interview take home challenge. At the time of its completion, I am a student at Turing School of Software Engineering in the final quarter of the program.
 
-### Learning Goals:
+### Expectations:
 - Apply functional programming principles in the application's architecture and codebase
 - Work with an external API to receive data
 - Create a multi-page UX using Router
