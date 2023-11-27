@@ -8,6 +8,9 @@
 Pulse News is a reliable news aggregator app that not only delivers current US news headlines but also empowers users with a robust search feature to uncover the important events of the day. After an headline is clicked, the user is shown a concise summary and a direct link to the full article.
 
 ### Preview
+<img width="1331" alt="Screenshot 2023-11-27 at 9 33 13 AM" src="https://user-images.githubusercontent.com/130494366/285908399-3303f301-1f79-45be-9b7e-db9134bacc2d.png">
+<img width="1329" alt="Screenshot 2023-11-27 at 9 34 14 AM" src="https://user-images.githubusercontent.com/130494366/285908517-65dd8e5f-01a8-413c-8357-04e270fb5a89.png">
+<img width="1324" alt="Screenshot 2023-11-27 at 9 25 45 AM" src="https://user-images.githubusercontent.com/130494366/285908605-11d2a665-17c0-450f-a0b8-99ea1472935d.png">
 
 ### Contributors
 
