@@ -1,0 +1,35 @@
+nav header {
+  text-align: center;
+}
+
+nav h1 {
+  margin: 1em;
+}
+
+.search-container {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 3em;
+  margin-bottom: 4%;
+}
+
+input {
+  background-color: rgb(230, 230, 230);
+  color: rgb(0, 0, 0);
+  width: 10rem;
+  height: 1.9rem;
+  padding-left: 2em;
+  border: none;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.submit-btn, 
+.clear-btn {
+  background-color: rgb(230, 230, 230);
+  width: 4rem;
+  height: 1.9rem;
+  border: none;
+  text-decoration: none;
+  border-radius: 8px;
+}
