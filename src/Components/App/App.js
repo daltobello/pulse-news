@@ -2,7 +2,6 @@ import './App.css';
 import {useEffect, useState} from "react"
 import {Routes, Route} from "react-router-dom"
 import getNews from '../../apiCalls';
-import { data } from "../../Data/data"
 import AllNews from '../AllNews/AllNews';
 import ArticleDetails from '../ArticleDetails/ArticleDetails';
 import Nav from '../Nav/Nav';
@@ -13,12 +12,6 @@ function App() {
   const [articles, setArticles] = useState([])
   const [searchResults, setSearchResults] = useState([])
   const [serverError, setServerError] = useState("")
-
-  // useEffect(() => {
-  //   const articlesWithImg = articles.filter(article => article.urlToImage);
-  //   console.log("articlessss", articlesWithImg);
-  //   setArticles(articlesWithImg);
-  // }, []);
 
   useEffect(() => {
     getNews()

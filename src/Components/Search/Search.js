@@ -1,4 +1,3 @@
-// Search.js
 import "./Search.css";
 import { useState, useEffect } from "react"
 import PropTypes from "prop-types"
@@ -52,7 +51,6 @@ function Search({ handleNewsSearch }) {
 }
 
 export default Search;
-
 Search.propTypes = { 
   handleNewsSearch: PropTypes.func.isRequired,
 }
