@@ -3,7 +3,6 @@ import Article from "../Article/Article"
 import PropTypes from "prop-types"
 
 function AllNews({allArticles}) {
-  // console.log("all", allArticles)
   const articleCard = allArticles.map((article, index) => {
     return <Article key={article.publishedAt} article={article} index={allArticles.indexOf(article)}/>
   })

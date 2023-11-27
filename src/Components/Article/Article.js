@@ -4,9 +4,6 @@ import {Link} from "react-router-dom"
 import PropTypes from "prop-types"
 
 function Article({article, index}) {
-  console.log("art:", article)
-  console.log("index", index)
-
   return (
     <Link className="article-link-wrapper" to={`/article/${index}`}>
     <article className="article-container">
@@ -20,7 +17,6 @@ function Article({article, index}) {
 }
 
 export default Article
-
 Article.propTypes = {
   article: PropTypes.shape({
     author: PropTypes.string,

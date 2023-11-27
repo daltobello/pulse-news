@@ -2,7 +2,6 @@ import "./ErrorPage.css"
 import {Link, useNavigate} from "react-router-dom"
 import PropTypes from 'prop-types';
 
-
 function ErrorPage({serverError, notFoundMessage}) {
   const navigate = useNavigate()
   
