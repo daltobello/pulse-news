@@ -1,0 +1,37 @@
+.article-details-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.detail-headline-and-img {
+  text-align: center;
+}
+
+.detail-headline {
+  font-family: 'Georgia', serif;
+  font-size: 1.5rem;
+}
+
+.detail-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.detail-content {
+  line-height: 1.6;
+  font-family: 'Georgia', serif;
+  font-weight: 500;
+}
+
+.source-link {
+  color: #0071bc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.source-link:hover {
+  text-decoration: underline;
+}

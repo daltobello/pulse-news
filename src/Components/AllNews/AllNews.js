@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 
 function AllNews({allArticles}) {
   const articleCard = allArticles.map((article, index) => {
-    return <Article key={article.publishedAt} article={article} index={allArticles.indexOf(article)}/>
+    return <Article key={article.title} article={article} index={allArticles.indexOf(article)}/>
   })
   return (
  <div className="articles-wrapper">{articleCard}</div>   

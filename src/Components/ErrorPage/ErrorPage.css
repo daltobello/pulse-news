@@ -1,0 +1,27 @@
+.error {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 7%;
+  text-align: center;
+}
+
+.server-error-message,
+.erroneous-url-message {
+  font-family: 'Georgia', serif;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.return-button {
+  background-color: #0071bc;
+  color: white;
+  font-size: 1em;
+  padding: .3em .8em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.return-button:hover {
+  background-color: #005082;
+}

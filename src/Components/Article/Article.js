@@ -7,9 +7,9 @@ function Article({article, index}) {
   return (
     <Link className="article-link-wrapper" to={`/article/${index}`}>
     <article className="article-container">
-      <p className="article-date">Published on: {formatPublishedDate(article.publishedAt)}</p>
-      <h2 className="article-headline">{article.title}</h2>
-      <h3 className="article-description">{article.description}</h3>
+      <p className="article-date article-copy">Published on: {formatPublishedDate(article.publishedAt)}</p>
+      <h2 className="article-headline article-copy">{article.title}</h2>
+      <h3 className="article-description article-copy">{article.description}</h3>
     </article>
     <img className="article-image" src={article.urlToImage} alt={`Image of ${article.title}`}/>
   </Link>
